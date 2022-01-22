@@ -3,6 +3,7 @@ import video1 from "./videos/tiktok.mp4";
 import "./Video.css";
 import VideoFooter from "./VideoFooter";
 import VideoSidebar from "./VideoSidebar";
+import ReactPlayer from "react-player";
 
 function Video(props) {
   const [playing, setPlaying] = useState(false);
@@ -18,15 +19,14 @@ function Video(props) {
   };
   return (
     <div className="video">
-      <video
+      <ReactPlayer
         onClick={handleClick}
         className="video_player"
         loop
         ref={videoRef}
-        src={props.url}
+        url={props.url}
         height="650px"
-        controls={true}
-      ></video>
+      ></ReactPlayer>
       <VideoFooter
         username={props.username}
         description={props.description}
